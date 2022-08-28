@@ -321,6 +321,7 @@ a{
 	height:90vh; width:100vw;
 	overflow-wrap: break-word;
 	word-wrap: break-word;
+       margin-bottom:4rem;
 }
 .c-area .self-msgs{
 	display:block;

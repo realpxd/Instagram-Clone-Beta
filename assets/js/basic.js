@@ -5,13 +5,13 @@ let limit = 4;
 let pageCount = 1;
 let postCount = 1;
 
+
 const getPost = async () => {
 	const response = await fetch(`https://naman77s.github.io/Igc/db.json`);
-	console.log(response);
+	//console.log(response);
 	const data = await response.json();
-	console.log(data);
+	//console.log(data);
 	
-
 data.map((curElm , index) => {
 	const feedData = `
 		<div class="posts">
@@ -136,3 +136,7 @@ const chatArea = document.getElementById("c-area");
 $(".gotoBottom").click(function(){
 	chatArea.scrollTo(0,20000);
 });
+$(window).on("load", function() {
+	var preload = $('.preloader');
+		preload.fadeOut(700);
+	});

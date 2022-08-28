@@ -6,7 +6,7 @@ let pageCount = 1;
 let postCount = 1;
 
 const getPost = async () => {
-	const response = await fetch(`./db.json`);
+	const response = await fetch(`https://naman77s.github.io/Igc/db.json`);
 	console.log(response);
 	const data = await response.json();
 	console.log(data);

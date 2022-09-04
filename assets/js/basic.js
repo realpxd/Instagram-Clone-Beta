@@ -12,19 +12,19 @@ const getPost = async () => {
 	const data = await response.json();
 	//console.log(data);
 	
-data.map((curElm , index) => {
+data.map((curElm) => {
 	const feedData = `
 		<div class="posts">
 			<div class="post-nav">
 				<span class="post-head">
-					<img class="post-pfp" src="https://source.unsplash.com/random/?person?sig=${curElm.likes}" alt="${curElm.id}'s profile picture">
+					<img class="post-pfp" src="https://source.unsplash.com/random/?person?sig=${curElm.likes}&auto=webp&q=10" alt="${curElm.id}'s profile picture">
 					${curElm.id}
 				</span>
 				<span class="post-menu">
 					<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
 				</span>
 			</div>
-			<img class="post-main" src="https://source.unsplash.com/random/${screen.width}x${screen.height/2}?sig=${curElm.likes}" alt="${curElm.id}'s post";">
+			<img class="post-main" src="https://source.unsplash.com/random/${screen.width}x${screen.height/2}?sig=${curElm.likes}&auto=webp&q=10" alt="${curElm.id}'s post";">
 			<div class="post-info">
 				<div class="post-reacts">
 					<i class="far fa-heart" aria-hidden="true" onclick="likeme()"></i>
@@ -43,12 +43,13 @@ data.map((curElm , index) => {
 			<p class="post-time"> ${curElm.postTime} hours ago </p>
 		</div>
 	`;
+
 	containerF.insertAdjacentHTML('beforeend' , feedData);
-	
+
 	const directData = `
 		<div class="m-boxes" onclick="boxes()">
 			<div class="m-clm-a">
-				<img class="m-pfp" src="https://source.unsplash.com/random/?person?sig=${curElm.likes}" alt="${curElm.id}'s profile picture";">
+				<img class="m-pfp" src="https://source.unsplash.com/random/?person?sig=${curElm.likes}&auto=webp&q=10" alt="${curElm.id}'s profile picture";">
 				<div>
 					<p class="m-user">${curElm.id}</p>
 					<p  class="m-text-box">last online : ${curElm.postTime}h ago</p>
@@ -63,19 +64,6 @@ data.map((curElm , index) => {
 
 })
 };
-const showData = () => {
-	setTimeout(() => {
-		pageCount++;
-		getPost();
-	} , 30)
-	
-}
-window.addEventListener('scroll' , () => {
-	const {scrollHeight , scrollTop , clientHeight} = document.createElement;
-	if(scrollTop, clientHeight >= scrollHeight){
-		showData();
-	}
-})
 
 getPost();
 
@@ -136,7 +124,7 @@ const chatArea = document.getElementById("c-area");
 $(".gotoBottom").click(function(){
 	chatArea.scrollTo(0,20000);
 });
-$(window).on("load", function() {
+setTimeout(function(){
 	var preload = $('.preloader');
 		preload.fadeOut(700);
-	});
+	},3500);
